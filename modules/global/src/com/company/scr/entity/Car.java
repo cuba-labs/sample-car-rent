@@ -2,6 +2,7 @@ package com.company.scr.entity;
 
 import com.company.scr.entity.constraints.PurchasedAfterManufactured;
 import com.company.scr.entity.constraints.ReliabilityPolicyCompliant;
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
@@ -72,13 +73,27 @@ public class Car extends StandardEntity {
     protected Double mileage;
 
     @OnDelete(DeletePolicy.CASCADE)
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "")
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TECHNICAL_CERTIFICATE_ID")
     protected TechnicalCertificate technicalCertificate;
+
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "VEHICLE_REGISTRATION_CERTIFICATE_ID")
+    protected VehicleRegistrationCertificate vehicleRegistrationCertificate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PHOTO_ID")
     protected FileDescriptor photo;
+
+    public VehicleRegistrationCertificate getVehicleRegistrationCertificate() {
+        return vehicleRegistrationCertificate;
+    }
+
+    public void setVehicleRegistrationCertificate(VehicleRegistrationCertificate vehicleRegistrationCertificate) {
+        this.vehicleRegistrationCertificate = vehicleRegistrationCertificate;
+    }
 
     public Date getManufactureDate() {
         return manufactureDate;

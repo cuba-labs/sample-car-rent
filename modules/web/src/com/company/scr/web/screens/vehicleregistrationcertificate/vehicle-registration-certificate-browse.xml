@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="vehicleRegistrationCertificatesTable"
+        messagesPack="com.company.scr.web.screens.vehicleregistrationcertificate">
+  <data readOnly="true">
+    <collection id="vehicleRegistrationCertificatesDc"
+                class="com.company.scr.entity.VehicleRegistrationCertificate"
+                view="_base">
+      <loader id="vehicleRegistrationCertificatesDl">
+        <query>
+          <![CDATA[select e from scr_VehicleRegistrationCertificate e]]>
+        </query>
+      </loader>
+    </collection>
+  </data>
+  <dialogMode height="600"
+              width="800"/>
+  <layout expand="vehicleRegistrationCertificatesTable"
+          spacing="true">
+    <filter id="filter"
+            applyTo="vehicleRegistrationCertificatesTable"
+            dataLoader="vehicleRegistrationCertificatesDl">
+      <properties include=".*"/>
+    </filter>
+    <groupTable id="vehicleRegistrationCertificatesTable"
+                width="100%"
+                dataContainer="vehicleRegistrationCertificatesDc">
+      <actions>
+        <action id="create" type="create"/>
+        <action id="edit" type="edit"/>
+        <action id="remove" type="remove"/>
+      </actions>
+      <columns>
+        <column id="vin"/>
+        <column id="engineSpecifications"/>
+      </columns>
+      <rowsCount/>
+      <buttonsPanel id="buttonsPanel"
+                    alwaysVisible="true">
+        <button id="createBtn" action="vehicleRegistrationCertificatesTable.create"/>
+        <button id="editBtn" action="vehicleRegistrationCertificatesTable.edit"/>
+        <button id="removeBtn" action="vehicleRegistrationCertificatesTable.remove"/>
+      </buttonsPanel>
+    </groupTable>
+    <hbox id="lookupActions" spacing="true" visible="false">
+      <button action="lookupSelectAction"/>
+      <button action="lookupCancelAction"/>
+    </hbox>
+  </layout>
+</window>

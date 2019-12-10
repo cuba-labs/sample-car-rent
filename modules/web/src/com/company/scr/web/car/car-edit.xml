@@ -37,6 +37,7 @@
                 <field id="price"/>
                 <field id="mileage"/>
                 <field id="technicalCertificate"/>
+                <field id="vehicleRegistrationCertificate"/>
                 <field id="photo"/>
             </column>
         </fieldGroup>

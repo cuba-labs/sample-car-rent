@@ -8,5 +8,6 @@
         <item id="scr$CarRent.browse"/>
         <item id="scr$TechnicalCertificate.browse"/>
         <item screen="scr$SparePart.browse"/>
+      <item screen="scr_VehicleRegistrationCertificate.browse"/>
     </menu>
 </menu-config>

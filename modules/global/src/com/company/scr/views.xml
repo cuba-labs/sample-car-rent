@@ -3,12 +3,10 @@
     <view class="com.company.scr.entity.Car"
           extends="_local"
           name="car-edit">
-        <property name="garage"
-                  view="_minimal"/>
-        <property name="technicalCertificate"
-                  view="_minimal"/>
-        <property name="photo"
-                  view="_minimal"/>
+        <property name="garage" view="_minimal"/>
+        <property name="technicalCertificate" view="_minimal"/>
+        <property name="vehicleRegistrationCertificate" view="_minimal"/>
+        <property name="photo" view="_minimal"/>
     </view>
     <view class="com.company.scr.entity.FavoriteCar"
           extends="_local"
